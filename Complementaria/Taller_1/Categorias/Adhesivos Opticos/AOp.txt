@@ -1,0 +1,4 @@
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/optical%20adhesives/Loctite-3526/Iezzi.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/optical%20adhesives/NOA-1348/Iezzi.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/optical%20adhesives/NOA-61/Joseph.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/optical%20adhesives/NOA-61/Joseph.yml

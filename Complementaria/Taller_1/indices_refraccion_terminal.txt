@@ -1,0 +1,29 @@
+Comandos usados en los puntos 1.1 y 1.2:
+
+Antes:
+
+$ cd 'C:\Users\elect\Documents\Mertodos Compiu\MetodosI_NicolasNegrete\Complementaria\Taller_1'
+$ touch indices_refraccion_terminal.txt
+
+1.1:
+
+awk -F "," 'NR==2,NR==103 {print $3}' indices_refraccion.csv > materiales.txt
+
+1.2:
+
+$ mkdir Categorias
+$ cd Categorias
+$ mkdir Vidrio 'Materia Inorganica' 'Materia Organica' 'Plasticos Comerciales' Exotico Combustible Mezclas 'Adhesivos Opticos'
+
+$ cd 'Categorias/Vidrio'
+$ touch Vi.txt 
+
+'Vi.txt' es una lista para descargar todos los archivos de la categoria de 'Vidrio'. Lo mismo se hace con el resto de categorias, excepto con 'Exotico' y 'Combustible' porque solo tenian un archivo cada uno.
+
+$cd ..
+$cd ..
+$ awk -F "," '$4 ~ "glass" {print $4}' indices_refraccion.csv > Categorias/Vidrio/Vi.txt
+$ cd 'Categorias/Vidrio'
+$ wget -i Vi.txt
+
+Se realiza el mismo procedimiento para el resto de categorias.

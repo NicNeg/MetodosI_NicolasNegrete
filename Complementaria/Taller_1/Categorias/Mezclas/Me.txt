@@ -1,0 +1,3 @@
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/mixed%20gases/air/Mathar-1.3.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/mixed%20organic/PBDBT-ITIC/Kerremans.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/mixed%20organic/PEDOT-PSS/Chen.yml

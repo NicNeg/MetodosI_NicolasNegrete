@@ -1,0 +1,3 @@
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/commercial%20plastics/CR-39/mono.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/commercial%20plastics/Kapton/French.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/commercial%20plastics/Surlyn%20A-1601/Smith.yml

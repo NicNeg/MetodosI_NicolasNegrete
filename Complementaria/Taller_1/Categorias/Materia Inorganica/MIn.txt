@@ -1,0 +1,10 @@
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/Ar/Sinnock-liquid-90K.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/CO1/Smith.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/CS2/Ghosal.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/D2/Weber.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/GaP/Bond.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/Kr/Sinnock-solid-115.95K.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/ReS2/Munkhbat-gamma.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/Sc2O3/Arndt.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/Se/Campel-o.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/main/SiO/Hass.yml

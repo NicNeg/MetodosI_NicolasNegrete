@@ -1,0 +1,3 @@
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/organic/(C2H6OSi)n%20-%20polydimethylsiloxane/Gupta-UV.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/organic/CCl4%20-%20carbon%20tetrachloride/Ghosal.yml
+https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/organic/CHBr3%20-%20bromoform/Ghosal.yml
