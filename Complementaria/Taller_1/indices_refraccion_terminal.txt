@@ -20,10 +20,26 @@ $ touch Vi.txt
 
 'Vi.txt' es una lista para descargar todos los archivos de la categoria de 'Vidrio'. Lo mismo se hace con el resto de categorias, excepto con 'Exotico' y 'Combustible' porque solo tenian un archivo cada uno.
 
-$cd ..
-$cd ..
+$ cd ..
+$ cd ..
 $ awk -F "," '$4 ~ "glass" {print $4}' indices_refraccion.csv > Categorias/Vidrio/Vi.txt
 $ cd 'Categorias/Vidrio'
 $ wget -i Vi.txt
 
 Se realiza el mismo procedimiento para el resto de categorias.
+
+Para 'Exotico' y 'Combustible' se uso el siguiente comando
+
+$ wget -P 'Categorias/Exotico' https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/other/exotic/metamaterials/Valentine.yml
+
+Algunos archivos tenian los nombres de los autores o fabricantes en lugar de los nombres de los materiales, toco cambiarlos manualmente.
+Aqui un ejemplo de ello:
+
+$cd 'Categorias/Materia Organica'
+$ mv Ghosal.yml Tetrachloride.yml
+
+Otros tenian nombres de materiales expandidos como "D1426-D1526", los reduje al nombre del material que se mostraba en la columna de materiales con los comandos de antes. En el ejemplo de esta linea, pase "D1426-D1526" a "D1426".
+
+Cambiar los nombres de los archivos a los nombres de los materiales facilita el punto 1.4 y 1.5
+
+Los archivos repetidos como "BF11" se les puso un _2 al final del nombre para diferenciarlos.
