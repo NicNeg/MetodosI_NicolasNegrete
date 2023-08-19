@@ -45,9 +45,28 @@ def buscar_archivo() -> str:
     
     while j < 9:
         
+        n = 0
+        
         if numero == j:
             
             lista = dic_archivos[j]
+            
+            while n < len(lista):
+                    
+                s_metiche = lista[n]
+                s_metiche_c = s_metiche[len(s_metiche)-4:len(s_metiche)]
+                    
+                if s_metiche_c == '.txt':
+                        
+                    lista.pop(n)
+                        
+                elif s_metiche_c == '.png':
+                        
+                    lista.pop(n)
+                        
+                else:
+                        
+                    n += 1
             
             for i in range(0,len(lista)):
             
