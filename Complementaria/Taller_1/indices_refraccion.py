@@ -9,9 +9,10 @@ from pathlib import Path
 import os
 import math
 import matplotlib.pyplot as plt
-import pandas as pd
 
-def buscar_archivo () -> str:
+#Funciones base
+
+def buscar_archivo() -> str:
      
     ruta1 = Path.cwd() / 'Categorias'
     
@@ -65,7 +66,7 @@ def buscar_archivo () -> str:
     
     return archivo
 
-def buscar_enlace (archivo:str) -> str:
+def buscar_enlace(archivo:str) -> str:
     
     ruta1 = Path.cwd() / 'Categorias'
     
@@ -101,28 +102,55 @@ def buscar_enlace (archivo:str) -> str:
         
     return ruta
 
-def crear_enlace_material_dict () -> dict:
+def crear_enlace_material_dict() -> dict:
     
     dict_categorias = {}
     
     ruta1 = Path.cwd() / 'Categorias'
     lista_ruta1 = os.listdir(ruta1)
     
+    k = 0
+    
     for i in lista_ruta1:
         
-        dict_categorias[i]
-        ruta2 = Path.cwd() / 'Categorias' / dict_categorias[i]
+        ruta2 = Path.cwd() / 'Categorias' / lista_ruta1[k]
         lista_ruta2 = os.listdir(ruta2)
+        
+        n = 0
+        
+        while n < len(lista_ruta2):
+            
+            s_metiche = lista_ruta2[n]
+            s_metiche_c = s_metiche[len(s_metiche)-4:len(s_metiche)]
+            
+            if s_metiche_c == '.txt':
+                
+                lista_ruta2.pop(n)
+                
+            elif s_metiche_c == '.png':
+                
+                lista_ruta2.pop(n)
+                
+            else:
+                
+                n += 1
+        
         dict_archivos = {}
+        k += 1
+        w = 0
         
         for j in lista_ruta2:
             
-            dict_categorias[i] = dict_archivos[j]
-            dict_archivos[j] = 
-    
-    
-        
+            nombre_m = lista_ruta2[w]
+            nombre_d = len(nombre_m) - 4
+            nombre = nombre_m[0:nombre_d]
+            dict_archivos[j] = nombre
+            dict_categorias[i] = dict_archivos
+            w += 1
+            
     return dict_categorias
+
+#Función 1.3
 
 def crear_list_tupla_onda_y_n(ruta:str) -> list:
     
@@ -133,7 +161,7 @@ def crear_list_tupla_onda_y_n(ruta:str) -> list:
     k = 0
     n = None
     
-    archivo = open(ruta, 'r', encoding = 'utf8')
+    archivo = open(ruta, 'r', encoding = 'utf-8')
     
     datos = archivo.readline()
     e = len(datos)
@@ -186,21 +214,10 @@ def crear_list_tupla_onda_y_n(ruta:str) -> list:
             else:
                 
                 continuar = False
-        
-    print(lista)
+                
     return lista
 
-def k_n(ruta:str) -> str :
-    
-    if ruta == 'French.yml':
-    
-        nombre = 'Kapton'
-        
-    elif ruta == 'Iezzi':
-        
-        nombre = 'NOA1348'
-        
-    return nombre
+#Funciones 1.4
 
 def n_promedio(info:list):
     
@@ -222,27 +239,56 @@ def n_desviación_estandar(info:list,promedio:float):
     j = 0
     sumatoria = 0
     
-    for i in info:
+    if len(info) == 1:
         
-        j += 1
-        n = i[1]
-        resta = pow(n - promedio,2)
-        sumatoria += resta
+        des_est = 'No hay'
+    
+    else:
         
-    des_est = math.sqrt(sumatoria/(j-1))
+        for i in info:
+        
+            j += 1
+            n = i[1]
+            resta = pow(n - promedio,2)
+            sumatoria += resta
+        
+        des_est = math.sqrt(sumatoria/(j-1))
         
     return des_est    
 
-def graficar_índice_de_refracción_kapton_NOA138 (enlace:str, info:list, promedio:float, des_est:float, dic:dict):
+def graficar_índice_de_refracción(archivo:str, info:list, promedio:float, des_est:float, dic:dict):
     
     Lista_Onda = []
     Lista_n = []
     
+    j = 0
+    
     promedio_str = str(promedio)
     des_est_str = str(des_est)
+    lista_tu = list(dic.items())
     
-    nombre = dic.get(enlace)
-    
+    while j < len(lista_tu):
+        
+        tupla = lista_tu[j]
+        dic_archivos = tupla[1]
+        llaves = list(dic_archivos.keys())
+        
+        k = 0
+        
+        while k < len(llaves):
+        
+            if archivo == llaves[k]:
+            
+                nombre = dic_archivos[archivo]
+                j = len(lista_tu)
+                k = len(llaves)
+            
+            else:
+            
+                k += 1
+                
+        j += 1
+            
     for i in info:
        
        Onda = i[0]
@@ -250,7 +296,8 @@ def graficar_índice_de_refracción_kapton_NOA138 (enlace:str, info:list, promed
        n = i[1]
        Lista_n.append(n)
            
-    plt.plot(Lista_Onda,Lista_n)
+    plt.plot(Lista_Onda,Lista_n, color= 'r')   
+    plt.scatter(Lista_Onda,Lista_n)
     plt.title('Grafica del índice de refracción del material ' + "'" + nombre + "'" + ' en función de su longitud de onda' +
               '\nÍndice de refracción promedio de ' + "'" + nombre + "'" + ": " + promedio_str +
               '\nDesviación estándar del índice de refracción de ' + "'" + nombre + "'" + ': ' + des_est_str)
@@ -259,8 +306,62 @@ def graficar_índice_de_refracción_kapton_NOA138 (enlace:str, info:list, promed
     plt.ylabel('Índice de refracción')
     
     plt.show()
+    
+#Función 1.5
 
-#graficar_índice_de_refracción_kn('https://raw.githubusercontent.com/polyanskiy/refractiveindex.info-database/master/database/data-nk/glass/lzos/BF1.yml',crear_list_tupla_onda_y_n('BF1.yml'),n_promedio(crear_list_tupla_onda_y_n('BF1.yml')),n_desviación_estandar(crear_list_tupla_onda_y_n('BF1.yml'),n_promedio(crear_list_tupla_onda_y_n('BF1.yml'))),crear_enlace_material_dic('indices_refraccion.csv'))
+def graficar_todos_los_indices_de_refracción_y_guardarlos(dic:dict):
+    
+    ruta1 = Path.cwd() / 'Categorias'
+    lista_ruta1 = os.listdir(ruta1)
+    
+    lista_tu = list(dic.items())
+    
+    for i in range(0,len(lista_ruta1)):
+        
+        tupla_archivos = lista_tu[i]
+        dict_archivos = tupla_archivos[1]
+        llaves = list(dict_archivos.keys())
+        
+        for j in range(0,len(llaves)):
+            
+            Lista_Onda = []
+            Lista_n = []
+            ruta2 = Path.cwd() / 'Categorias' / lista_ruta1[i] / llaves[j]
+            ruta3 = str(Path.cwd() / 'Categorias' / lista_ruta1[i])
+            tuplas = crear_list_tupla_onda_y_n(ruta2)
+            nombre = dict_archivos[llaves[j]]
+            promedio = n_promedio(tuplas)
+            promedio_str = str(promedio)
+            des_est_str = str(n_desviación_estandar(tuplas, promedio))
+            
+            for k in tuplas:
+            
+                Onda = k[0]
+                Lista_Onda.append(Onda)
+                n = k[1]
+                Lista_n.append(n)
+                
+            plt.plot(Lista_Onda,Lista_n, color= 'r')   
+            plt.scatter(Lista_Onda,Lista_n)
+            plt.title('Grafica del índice de refracción del material ' + "'" + nombre + "'" + ' en función de su longitud de onda' +
+                      '\nÍndice de refracción promedio de ' + "'" + nombre + "'" + ": " + promedio_str + '\nDesviación estándar del índice de refracción de '+ 
+                      "'" + nombre + "'" + ': ' + des_est_str)
+                
+            plt.xlabel('Longitud de Onda')
+            plt.ylabel('Índice de refracción')
+
+            plt.savefig(ruta3 + '\\' + nombre +'.png', bbox_inches='tight')
+            plt.clf()
+
+'''archivo = buscar_archivo()
+info = crear_list_tupla_onda_y_n(buscar_enlace(archivo))
+promedio = n_promedio(info)
+des_est = n_desviación_estandar(info, promedio)
+dic = crear_enlace_material_dict()'''
+
+#graficar_todos_los_indices_de_refracción_y_guardarlos(dic)
+
+#graficar_índice_de_refracción(archivo,info,promedio,des_est,dic)
 #crear_enlace_material_dic('indices_refraccion.csv')
-crear_list_tupla_onda_y_n(buscar_enlace(buscar_archivo()))
-
+#crear_list_tupla_onda_y_n(buscar_enlace(buscar_archivo()))
+#crear_enlace_material_dict()
