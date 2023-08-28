@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 class Mineral:
     
-    #Punto 1.1
+    #Punto 2.1
 
     def __init__(self,nombre:str,dureza:float,lustre:str,rompimiento_por_fractura:bool,color:str,
                  composición:str,sistema_cristalino:str,specific_gravity:float):
@@ -23,7 +23,7 @@ class Mineral:
         self.sistema_cristalino = sistema_cristalino
         self.gravedad_especifica = specific_gravity
         
-    #Punto 1.2
+    #Punto 2.2
             
     def clasificacion_silicato(self):
         
@@ -111,4 +111,5 @@ print(Noco.clasificacion_silicato(),',',Noco.densidad_SI(),'\n')
 
 Noco.imprimir_dureza_rompimiento_sistema()
 
-Noco.visualizacion_color_material()'''
+Noco.visualizacion_color_material()
+'''

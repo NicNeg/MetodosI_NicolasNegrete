@@ -66,4 +66,4 @@ def graficas_y_coeficientes(tupla:tuple):
     
     return tupla_gra_oli
     
-print(graficas_y_coeficientes(olivino_y_grafito(lm.lista_minerales('minerales.txt'))))
+#print(graficas_y_coeficientes(olivino_y_grafito(lm.lista_minerales('minerales.txt'))))

@@ -40,11 +40,14 @@ class ExpansionTermicaMineral(Mineral):
         temp_np = np.asarray(self.temperatura)
         volumen_np = np.asarray(self.volumen)
         
+        m = (volumen_np[1] - volumen_np[0]) / (temp_np[1] - temp_np[0])
+        
         h = temp_np[1] - temp_np[0]
-        d = ((volumen_np + h) - (volumen_np - h)) / (2*h)
+        d = ((m*(temp_np + h) - m*temp_np[0] + volumen_np[0]) - (m*(temp_np - h) - m*temp_np[0] + volumen_np[0])) / (2*h)
         
         coeficiente = (1/volumen_np)*d
-        error = np.abs(volumen_np - d)
+        d_exacta = np.gradient(m*temp_np - m*temp_np[0] + volumen_np[0])
+        error = np.abs(d - d_exacta)
         
         tupla_coeficiente_y_error = (coeficiente,error)
         
@@ -59,7 +62,7 @@ class ExpansionTermicaMineral(Mineral):
         ax_coeficiente = fig.add_subplot(122)
         ax_coeficiente.scatter(self.temperatura,coeficiente, color = 'orange')
         ax_coeficiente.set_xlabel('Temperatura (T=°C)', fontsize = 12)
-        ax_coeficiente.set_ylabel('Coeficiente (α)', fontsize = 12)
+        ax_coeficiente.set_ylabel('Coeficiente (α =°C^-1)', fontsize = 12)
         ax_coeficiente.set_title('Coeficiente en función de la Temperatura', fontsize = 15)
         
         return tupla_coeficiente_y_error

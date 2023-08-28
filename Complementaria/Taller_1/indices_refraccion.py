@@ -372,15 +372,17 @@ def graficar_todos_los_indices_de_refracción_y_guardarlos(dic:dict):
             plt.savefig(ruta3 + '\\' + nombre +'.png', bbox_inches='tight')
             plt.clf()
 
-'''archivo = buscar_archivo()
+'''
+archivo = buscar_archivo()
 info = crear_list_tupla_onda_y_n(buscar_enlace(archivo))
 promedio = n_promedio(info)
 des_est = n_desviación_estandar(info, promedio)
-dic = crear_enlace_material_dict()'''
+dic = crear_enlace_material_dict()
 
-#graficar_todos_los_indices_de_refracción_y_guardarlos(dic)
+graficar_todos_los_indices_de_refracción_y_guardarlos(dic)
 
-#graficar_índice_de_refracción(archivo,info,promedio,des_est,dic)
-#crear_enlace_material_dic('indices_refraccion.csv')
-#crear_list_tupla_onda_y_n(buscar_enlace(buscar_archivo()))
-#crear_enlace_material_dict()
+graficar_índice_de_refracción(archivo,info,promedio,des_est,dic)
+crear_enlace_material_dic('indices_refraccion.csv')
+crear_list_tupla_onda_y_n(buscar_enlace(buscar_archivo()))
+crear_enlace_material_dict()
+'''
