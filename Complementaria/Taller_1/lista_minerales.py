@@ -26,7 +26,7 @@ def lista_minerales(ruta:str):
                 datos.pop(j+1)
                 j = len(datos) + 1
                 
-            elif datos[j] == 'METçLICO/NO':
+            elif datos[j] == 'METÁLICO/NO':
                 
                 datos[j] = datos[j] + ' ' + datos[j+1]
                 datos.pop(j+1)
