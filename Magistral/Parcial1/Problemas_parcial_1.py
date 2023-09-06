@@ -7,9 +7,7 @@ Created on Sun Sep  3 17:28:55 2023
 
 import numpy as np
 import matplotlib.pyplot as plt
-import sympy as sp
 import pandas as pd
-import os
 from os import path
 from pathlib import Path
 import wget
@@ -157,7 +155,7 @@ def todas_las_raices(x,h):
 def graficar(x):
     
     plt.plot(x,f)
-    plt.axhline(y = 0, color = 'r')
+    plt.axhline(0, color = 'r')
     plt.show()
     
 graficar(x_p_3)
