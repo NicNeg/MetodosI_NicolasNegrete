@@ -1,0 +1,2 @@
+No sabia que podiamos usar las funciones internas de numpy y sumpy para hallar las raices y pesos 
+cuando n = 20 y n = 50 en los problemas adicionales. Espero que los n = 10 aún así sean suficiente.
