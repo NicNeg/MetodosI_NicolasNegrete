@@ -55,6 +55,7 @@ def descenso_conjugado(A,x,b,itmax=5):
                 i += 1
                 a_k = -(((r_k.transpose())*p_k)/((p_k.transpose())*A*p_k))
                 x_k = x[i,0] + a_k*p_k
+                x_k_vector.append(x_k)
                 
             else:
                 
@@ -64,6 +65,7 @@ def descenso_conjugado(A,x,b,itmax=5):
                 i += 1
                 a_k = -(((r_k.transpose())*p_k)/((p_k.transpose())*A*p_k))
                 x_k = x[i,0] + a_k*p_k
+                x_k_vector.append(x_k)
         
         it +=1
         
