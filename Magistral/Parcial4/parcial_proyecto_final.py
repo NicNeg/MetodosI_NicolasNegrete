@@ -122,7 +122,7 @@ dt = 0.1
 t = np.arange(0.,15.1,dt)
 
 #Recordemos que son 200 robots los que estan siendo evaluados, aunque solo se muestran 5.
-#No necesariamente uno de estos 5 es el mejor, ese se elige al final.
+#No necesariamente uno de estos 5 es el mejor, el mejor se elige al final.
 
 def GetPlot():
     
